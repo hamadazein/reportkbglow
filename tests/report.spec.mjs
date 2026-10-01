@@ -28,7 +28,7 @@ for(const width of [390,1280]){
  }
  await page.goto(base+'#1');await page.keyboard.press('ArrowRight');assert.equal(new URL(page.url()).hash,'#2');await page.keyboard.press('ArrowLeft');assert.equal(new URL(page.url()).hash,'#1');
  await page.keyboard.press('s');assert(await page.locator('.noir-rail').isVisible());await page.keyboard.press('s');await page.keyboard.press('g');assert(await page.locator('.noir-grid').isVisible());await page.keyboard.press('Escape');
- await page.goto(base+'#9');await page.keyboard.press('ArrowRight');assert.equal(new URL(page.url()).hash,'#9');await page.keyboard.press('ArrowRight');assert.equal(new URL(page.url()).hash,'#10');await page.keyboard.press('ArrowLeft');assert.equal(new URL(page.url()).hash,'#9');
+ await page.goto(base+'#9');await active().getByText('Apa arti angka perhatian?',{exact:true}).waitFor();await page.waitForTimeout(200);await page.keyboard.press('ArrowRight');assert.equal(new URL(page.url()).hash,'#9');await page.keyboard.press('ArrowRight');assert.equal(new URL(page.url()).hash,'#10');await page.keyboard.press('ArrowLeft');assert.equal(new URL(page.url()).hash,'#9');
  results.push({width,height:width===390?844:800,errors,geometry});await page.close();
 }
 await browser.close();
