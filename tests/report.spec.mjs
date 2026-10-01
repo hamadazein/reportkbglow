@@ -20,10 +20,20 @@ for(const width of [390,1280]){
  await active().getByLabel('Bulan',{exact:true}).selectOption('2026-06');assert.equal(await active().locator('[data-testid="metric-total"]').textContent(),'3');
  await active().getByLabel('Peran',{exact:true}).selectOption('ADMIN');assert.equal(await active().locator('[data-testid="metric-total"]').textContent(),'0');
  await active().getByLabel('Bulan',{exact:true}).selectOption('all');await active().getByLabel('Peran',{exact:true}).selectOption('all');await active().getByLabel('Sertakan account-test').check();await page.locator('body').click({position:{x:5,y:5}});
+ const reasonData=JSON.parse(fs.readFileSync('src/data/public-reasons.json','utf8'));
+ assert(reasonData.every(r=>Object.keys(r).sort().join(',')==='category,count,denominator,scope'));
+ assert.deepEqual(reasonData.filter(r=>r.scope==='Ibu'&&['IMT','Tekanan darah','LiLA'].includes(r.category)).map(r=>r.count).sort((a,b)=>a-b),[1,11,11]);
+ for(const [slide,labels] of [[10,['LiLA anak','Usia anak']],[11,['IMT ibu','Tekanan darah ibu','LiLA ibu','Urutan tekanan darah']]]){
+  await page.goto(base+'#'+slide);await active().locator('.reason-tabs').waitFor();
+  for(const label of labels){await active().getByRole('button',{name:label,exact:true}).click();assert.equal(await active().locator('.reason-answer h3').textContent(),label);assert(await active().locator('.reason-answer').textContent().then(t=>t.includes('Langkah desa')));
+   const fits=await active().locator('.reason-detail').evaluate(n=>{const r=n.getBoundingClientRect();return r.x>=0&&r.right<=innerWidth&&r.y>=0&&r.bottom<=innerHeight-65&&n.scrollHeight<=n.clientHeight+1});assert(fits,`Detail clipped: ${width} ${label}`);
+  }
+ }
+ await page.goto(base+'#12');await active().getByText('Verifikasi data, lanjutkan penilaian',{exact:true}).waitFor();
  const geometry=[];
- for(let i=1;i<=11;i++){
+ for(let i=1;i<=14;i++){
   await page.goto(base+'#'+i);await page.waitForTimeout(180);
-  const bad=await active().evaluate(el=>Array.from(el.querySelectorAll('.container, .report-head, .filters, .metrics, .chart-panel, .heatmap, .explain, .caption, h1, .figure, .subhead')).map(n=>({tag:n.className||n.tagName,r:n.getBoundingClientRect()})).filter(({r})=>r.width&&r.height&&(r.x<-.5||r.right>innerWidth+.5||r.y<-.5||r.bottom>innerHeight-65)).map(({tag,r})=>({tag,x:r.x,y:r.y,bottom:r.bottom,right:r.right})));
+  const bad=await active().evaluate(el=>Array.from(el.querySelectorAll('.container, .report-head, .filters, .metrics, .chart-panel, .heatmap, .explain, .caption, .reason-detail, .reason-answer, h1, .figure, .subhead')).map(n=>({tag:n.className||n.tagName,r:n.getBoundingClientRect()})).filter(({r})=>r.width&&r.height&&(r.x<-.5||r.right>innerWidth+.5||r.y<-.5||r.bottom>innerHeight-65)).map(({tag,r})=>({tag,x:r.x,y:r.y,bottom:r.bottom,right:r.right})));
   geometry.push({slide:i,overflow:bad});
  }
  await page.goto(base+'#1');await page.keyboard.press('ArrowRight');assert.equal(new URL(page.url()).hash,'#2');await page.keyboard.press('ArrowLeft');assert.equal(new URL(page.url()).hash,'#1');

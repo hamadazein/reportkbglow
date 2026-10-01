@@ -1,0 +1,56 @@
+[
+  {
+    "category": "LiLA",
+    "count": 5,
+    "scope": "Anak",
+    "denominator": 147
+  },
+  {
+    "category": "Usia",
+    "count": 1,
+    "scope": "Anak",
+    "denominator": 147
+  },
+  {
+    "category": "IMT",
+    "count": 11,
+    "scope": "Ibu",
+    "denominator": 33
+  },
+  {
+    "category": "LiLA",
+    "count": 1,
+    "scope": "Ibu",
+    "denominator": 33
+  },
+  {
+    "category": "Tekanan darah",
+    "count": 11,
+    "scope": "Ibu",
+    "denominator": 33
+  },
+  {
+    "category": "Perlu tinjau",
+    "count": 6,
+    "scope": "Anak",
+    "denominator": 147
+  },
+  {
+    "category": "Perlu tinjau",
+    "count": 16,
+    "scope": "Ibu",
+    "denominator": 33
+  },
+  {
+    "category": "Urutan tekanan darah perlu verifikasi",
+    "count": 2,
+    "scope": "Ibu",
+    "denominator": 33
+  },
+  {
+    "category": "Risiko Hb",
+    "count": 6,
+    "scope": "Hb",
+    "denominator": 36
+  }
+]

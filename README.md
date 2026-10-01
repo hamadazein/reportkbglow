@@ -1,6 +1,6 @@
 # KB-Glow — laporan aktivitas anonim
 
-Laporan interaktif 11 slide menggunakan **engine asli stackblitz/bolt-slides**, dengan `src/deck/` dan `src/styles/base.css` dipertahankan byte-identik. Konten baru, bukan reskin slide contoh.
+Laporan interaktif 14 slide menggunakan **engine asli stackblitz/bolt-slides**, dengan `src/deck/` dan `src/styles/base.css` dipertahankan byte-identik. Konten baru, bukan reskin slide contoh.
 
 ## Data dan privasi
 
@@ -42,4 +42,4 @@ Filter bulan, peran, serta akun uji tersinkron pada seluruh grafik. Navigasi pan
 
 Vite base `/reportkbglow/`; workflow `.github/workflows/pages.yml` melakukan typecheck/build dan upload/deploy GitHub Pages. Pages diaktifkan dengan `build_type=workflow` dan dibaca ulang melalui API. Verifikasi URL publik dilakukan sesudah push; keberhasilan lokal tidak dianggap bukti live.
 
-Usulan perbaikan sistem di slide terakhir **belum diimplementasikan** pada KB-Glow. Tidak ada VPS, .env, source KB-Glow atau database yang disentuh.
+Tiga slide tambahan menjelaskan alasan tinjau anak/ibu dan tindak lanjut desa. `public-reasons.json` hanya memuat category/count/scope/denominator dari query baru 1 Oktober 2026, transaksi read-only; kategori alasan dapat bertumpang tindih. Grafik alasan tidak mengikuti filter bulan/peran pada grafik aktivitas. Tanda saat ini bukan riwayat atau diagnosis. Risiko Hb ditampilkan sebagai satu kelompok, tanpa tingkat keparahan per kelompok kecil. Tidak ada identitas, nilai pemeriksaan individual, atau rincian desa. Tidak ada mutasi VPS, .env, source KB-Glow atau database.
