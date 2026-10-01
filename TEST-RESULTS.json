@@ -1,0 +1,111 @@
+{
+  "aggregateAssertions": "passed",
+  "typecheck": "passed separately",
+  "build": "passed separately",
+  "viewports": [
+    {
+      "width": 390,
+      "height": 844,
+      "errors": [],
+      "geometry": [
+        {
+          "slide": 1,
+          "overflow": []
+        },
+        {
+          "slide": 2,
+          "overflow": []
+        },
+        {
+          "slide": 3,
+          "overflow": []
+        },
+        {
+          "slide": 4,
+          "overflow": []
+        },
+        {
+          "slide": 5,
+          "overflow": []
+        },
+        {
+          "slide": 6,
+          "overflow": []
+        },
+        {
+          "slide": 7,
+          "overflow": []
+        },
+        {
+          "slide": 8,
+          "overflow": []
+        },
+        {
+          "slide": 9,
+          "overflow": []
+        },
+        {
+          "slide": 10,
+          "overflow": []
+        },
+        {
+          "slide": 11,
+          "overflow": []
+        }
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "errors": [],
+      "geometry": [
+        {
+          "slide": 1,
+          "overflow": []
+        },
+        {
+          "slide": 2,
+          "overflow": []
+        },
+        {
+          "slide": 3,
+          "overflow": []
+        },
+        {
+          "slide": 4,
+          "overflow": []
+        },
+        {
+          "slide": 5,
+          "overflow": []
+        },
+        {
+          "slide": 6,
+          "overflow": []
+        },
+        {
+          "slide": 7,
+          "overflow": []
+        },
+        {
+          "slide": 8,
+          "overflow": []
+        },
+        {
+          "slide": 9,
+          "overflow": []
+        },
+        {
+          "slide": 10,
+          "overflow": []
+        },
+        {
+          "slide": 11,
+          "overflow": []
+        }
+      ]
+    }
+  ],
+  "browserPass": true,
+  "testedUrl": "http://localhost:4173/reportkbglow/"
+}
