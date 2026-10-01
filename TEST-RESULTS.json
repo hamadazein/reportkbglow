@@ -107,5 +107,5 @@
     }
   ],
   "browserPass": true,
-  "testedUrl": "http://localhost:4173/reportkbglow/"
+  "testedUrl": "https://hamadazein.github.io/reportkbglow/"
 }
